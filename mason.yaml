@@ -1,0 +1,5 @@
+bricks:
+  glory_struc:
+    git:
+      url: https://github.com/GloryPackages/glory_bricks
+      path: bricks/glory_struc
