@@ -1,20 +1,20 @@
 import 'dart:convert';
 import 'dart:io';
 
+// ignore: depend_on_referenced_packages
+import 'package:dio/dio.dart' as dio;
 import 'package:dots/app/components/loading_widget.dart';
 import 'package:dots/app/features/auth/SignUp/text_field_border.dart';
 import 'package:dots/app/features/auth/logic/model/vendor_id_model.dart';
 import 'package:easy_localization/easy_localization.dart' as loc;
-// ignore: depend_on_referenced_packages
-import 'package:dio/dio.dart' as dio;
-import 'package:geeks_service/service/logger.dart';
-// import 'package:image_picker/image_picker.dart';
-// ignore: depend_on_referenced_packages
-import 'package:path/path.dart' as path;
 import 'package:flutter/material.dart';
 import 'package:flutter_extension_pk/extensions/extensions.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:geeks_service/service/logger.dart';
 import 'package:get/get.dart';
+// import 'package:image_picker/image_picker.dart';
+// ignore: depend_on_referenced_packages
+import 'package:path/path.dart' as path;
 
 import '../../../../core/utils/assets_file.dart';
 import '../../../components/Map/map_components/map_component.dart';
@@ -33,7 +33,7 @@ class SignUpScreeen extends StatelessWidget {
         centerTitle: true,
         title: SvgPicture.asset(
           AssetsFile.svg('logo2.svg'),
-          color: context.themeGx.colorScheme.background,
+          color: context.themeGx.colorScheme.surface,
           height: 25,
         ),
       ),
@@ -462,7 +462,7 @@ class SignUpController extends GetxController {
     isLoading = true;
     update();
     await dio.Dio()
-        .post('https://dotsapp.co/api/vendor/register',
+        .post('https://dotsapp.co/public/api/vendor/register',
             data: dio.FormData.fromMap(collectData.toJson()))
         .then((value) {
       logger.w(value.data);
@@ -490,7 +490,7 @@ class SignUpController extends GetxController {
     update();
     await dio.Dio()
         .get(
-      'https://dotsapp.co/api/user/vendor-category-list',
+      'https://dotsapp.co/public/api/user/vendor-category-list',
     )
         .then((value) {
       logger.i(value.data);

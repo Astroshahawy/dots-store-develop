@@ -1,9 +1,9 @@
+import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dots/app/features/auth/views/pages/login_page.dart';
 import 'package:geeks_service/geeks_service.dart';
 import 'package:get/get.dart';
-import 'dart:convert';
 
 class PinCodeController extends GetxController {
   final String phoneNo;
@@ -23,9 +23,9 @@ class PinCodeController extends GetxController {
     isSend = true;
     update();
     try {
-      log("send verify code api : 'https://dotsapp.co/api/vendor/send-verify-code ");
+      log("send verify code api : 'https://dotsapp.co/public/api/vendor/send-verify-code ");
       log("send verify number api : $phoneNo ");
-      await dio.post('https://dotsapp.co/api/vendor/send-verify-code',
+      await dio.post('https://dotsapp.co/public/api/vendor/send-verify-code',
           data: {'verify_key': phoneNo}).then((value) {
         log('verify status code = ${value.statusCode}');
         if (value.statusCode == 200) {
@@ -47,9 +47,9 @@ class PinCodeController extends GetxController {
     update();
 
     try {
-      log(" verify code api : 'https://dotsapp.co/api/vendor/verify-account ");
+      log(" verify code api : 'https://dotsapp.co/public/api/vendor/verify-account ");
 
-      await dio.post('https://dotsapp.co/api/vendor/verify-account',
+      await dio.post('https://dotsapp.co/public/api/vendor/verify-account',
           data: {'verify_key': phone, 'otp': pinCode}).then((value) {
         if (value.statusCode == 200) {
           verifyCodeModel = VerifyCodeModel.fromJson(value.data);

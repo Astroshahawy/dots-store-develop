@@ -53,14 +53,14 @@ class ProfileApis extends GetConnect {
     Response<dynamic>? response;
 
     try {
-      logger.i("Login URL : ${'https://dotsapp.co/api/vendor/profile'}");
+      logger.i("Login URL : ${'https://dotsapp.co/public/api/vendor/profile'}");
       // logger.i("Login URL : $token");
       logger.e("Login URL : ${Storage.getString(
         StorageAuthKeys.token,
       )}");
 
       response = await get(
-        'https://dotsapp.co/api/vendor/profile',
+        'https://dotsapp.co/public/api/vendor/profile',
         headers: {
           'Authorization': 'Bearer ${Storage.getString(
             StorageAuthKeys.token,

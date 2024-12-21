@@ -1,6 +1,6 @@
 mixin ApiUrls {
   //* Base url
-  static const baseUrlApi = 'https://dotsapp.co/api/vendor/';
+  static const baseUrlApi = 'https://dotsapp.co/public/api/vendor/';
   static const keyHeaderToken = 'notRequiresTokenKey';
 
   //* auth
@@ -14,7 +14,7 @@ mixin ApiUrls {
   static const giveBalance = 'give_balance';
   static const givePoints = 'give_points';
   static const giveMeal = 'give_free_meal';
-  static const staticPages = 'https://dotsapp.co/api/pages/2';
+  static const staticPages = 'https://dotsapp.co/public/api/pages/2';
   //*
   static const unpaidInvoice = 'unpaid-point-invoice-list';
   static const paidInvoice = 'paid-point-invoice-list';
@@ -22,13 +22,12 @@ mixin ApiUrls {
   static const addEmployee = 'add_employee';
   static const listEmployees = 'list_employees';
   static const deleteEmployee = 'delete_employee';
-  
+
   static const sliderHome = 'slider';
 
   static const notifications = 'notifications';
-  
+
   static const confirmCashbackOffer = 'confirm_cashback_offer';
 
   // static __(int id) => '/$id';
-
 }
